@@ -5,5 +5,8 @@ const userRouter = require('./user');
 
 router.use('/auth', authRouter);
 router.use('/u', userRouter)
+router.use('*', (req, res) => {
+  res.json({msg: 'Page not found - 404'})
+})
 
 module.exports = router;

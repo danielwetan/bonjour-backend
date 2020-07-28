@@ -7,6 +7,8 @@ const config = require('../configs/global');
 module.exports = {
   register: async (req, res) => {
     const setData = req.body;
+    // console.log(setData.profile_img)
+    setData.profile_img = req.file ? req.file.filename : '';
     const salt = bcrypt.genSaltSync(10);
     const hashPass = bcrypt.hashSync(setData.password, salt);
     setData.password = hashPass;

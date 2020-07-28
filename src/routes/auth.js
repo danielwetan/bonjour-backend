@@ -2,7 +2,9 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/auth');
 
-router.post('/register', authController.register);
-router.post('/login', authController.login);
+const multer = require('../helpers/multer');
+
+router.post('/register', multer.single('image'), authController.register);
+router.post('/login', multer.none(), authController.login);
 
 module.exports = router;

@@ -12,7 +12,7 @@ connection.connect((err) => {
   console.log('Database has connected');
 })
 
-app.use(express.static('assets/img/'))
+app.use(express.static('src/assets/'))
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());

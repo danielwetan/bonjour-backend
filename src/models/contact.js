@@ -8,10 +8,11 @@ module.exports = {
         if(err) {
           reject(err)
         }
-        // bug
-        // remove password, created_at, updated_at from endpoint result
-        // console.log("this is result")
-        // console.log(result.length)
+        for (let i = 0; i <= result.length-1; i++) {
+          delete result[i].password
+          delete result[i].created_at
+          delete result[i].updated_at
+        }
         resolve(result);
       })
     })

@@ -8,7 +8,10 @@ module.exports = {
   auth: {
     register: "INSERT INTO users SET ?",
     login: "SELECT * FROM users WHERE email=?",
-  }
+  },
+  contact: {
+    get: "SELECT * FROM users WHERE NOT id=? ORDER BY name"
+  },
 }
 
 // BACKUP
@@ -29,7 +32,7 @@ WHERE sender_id IN (2, 4) AND receiver_id IN (2, 4)
 ORDER BY id DESC LIMIT 1
 */
 
-/* LATEST MESSAGES */
+// Contact List
 /*
-select messages.id, messages.sender_id, users.name as sender_name, messages.receiver_id, messages.message, messages.created_at FROM messages INNER JOIN users ON users.id=messages.sender_id WHERE messages.id IN (SELECT MAX(id) FROM messages WHERE messages.receiver_id=2 GROUP BY messages.sender_id) ORDER BY created_at DESC
+SELECT * FROM `users` WHERE NOT (id=26) ORDER BY `id`  DESC
 */

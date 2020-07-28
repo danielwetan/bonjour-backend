@@ -2,17 +2,16 @@ const connection = require('../helpers/mysql');
 const query = require('../helpers/query');
 
 module.exports = {
-  getUserData: id => {
+  getContactData: id => {
     return new Promise((resolve, reject) => {
-      connection.query(query.user.get, id, (err, result) => {
+      connection.query(query.contact.get, id, (err, result) => {
         if(err) {
-          reject(err);
+          reject(err)
         }
         // bug
         // remove password, created_at, updated_at from endpoint result
-        // delete result[0].password
-        // delete result[0].created_at
-        // delete result[0].updated_at
+        // console.log("this is result")
+        // console.log(result.length)
         resolve(result);
       })
     })

@@ -21,5 +21,15 @@ module.exports = {
         resolve(result)
       })
     })
+  },
+  postMessage: (setData) => {
+    return new Promise((resolve, reject) => {
+      connection.query(query.msg.post, setData, (err, result) => {
+        if(err) {
+          reject(err);
+        }
+        resolve(result);
+      })
+    })
   }
 }

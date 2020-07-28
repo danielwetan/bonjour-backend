@@ -18,7 +18,7 @@ module.exports = {
       return helper.response(res, 'success', result, 200);
     } catch(err) {
       console.log(err);
-      return helper.response(res, 'fail', err, 200)
+      return helper.response(res, 'fail', err, 500)
     }
   },
   login: async (req, res) => {

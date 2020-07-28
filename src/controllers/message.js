@@ -23,5 +23,16 @@ module.exports = {
       console.log(err);
       return helper.response(res, 'failed', err, 500);      
     }
+  },
+  postMessage: async (req, res) => {
+    const setData = req.body;
+    console.log(setData)
+    try {
+      const result = await messageModel.postMessage(setData);
+      return helper.response(res, 'success', result, 200);
+    } catch(err) {
+      console.log(err);
+      return helper.response(res, 'failed', err, 500);
+    }
   }
 }

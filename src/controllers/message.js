@@ -11,5 +11,17 @@ module.exports = {
       console.log(err)
       return helper.response(res, 'failed', err, 500)
     }
+  },
+  getMessage: async (req, res) => {
+    try {
+      const sender = req.query.sender;
+      const receiver = req.query.receiver;
+      console.log(req.params)
+      const result = await messageModel.getMessage(sender, receiver);
+      return helper.response(res, "success", result, 200);
+    } catch(err) {
+      console.log(err);
+      return helper.response(res, 'failed', err, 500);      
+    }
   }
 }

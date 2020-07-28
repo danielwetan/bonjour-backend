@@ -4,8 +4,8 @@ const messageController = require('../controllers/message');
 // const multer = require('../helpers/multer');
 
 
-router.get('/:id', messageController.getLatestMessages);
-// router.get('/:id', messageController.getMessage);
+router.get('/', messageController.getMessage);
+// router.get('/:id', messageController.getLatestMessages);
 // router.post('/', messageController.postMessage);
 
 module.exports = router;

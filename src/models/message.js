@@ -11,5 +11,15 @@ module.exports = {
         resolve(result)
       })
     })
+  },
+  getMessage: (sender, receiver) => {
+    return new Promise((resolve, reject) => {
+      connection.query(query.msg.message, [sender,receiver], (err, result) => {
+        if(err) {
+          reject(err);
+        }
+        resolve(result)
+      })
+    })
   }
 }

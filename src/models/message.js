@@ -14,7 +14,7 @@ module.exports = {
   },
   getMessage: (sender, receiver) => {
     return new Promise((resolve, reject) => {
-      connection.query(query.msg.message, [sender,receiver], (err, result) => {
+      connection.query(query.msg.message, [sender,receiver, receiver, sender], (err, result) => {
         if(err) {
           reject(err);
         }

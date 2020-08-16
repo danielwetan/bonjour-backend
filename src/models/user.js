@@ -14,5 +14,15 @@ module.exports = {
         resolve(result);
       })
     })
+  },
+  updateUserData: (id, setData) => {
+    return new Promise((resolve, reject) => {
+      connection.query(query.user.update, [setData, id], (err, result) => {
+        if(err) {
+          reject(err);
+        }
+        resolve(result);
+      })
+    })
   }
 }

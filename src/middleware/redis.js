@@ -18,7 +18,7 @@ module.exports = {
     }
   },
   caching: (name, key, data) => {
-    client.hmset(name + ":" + key, data);
+    client.hmset(`${name}:` + key, data);
   },
   deleteCache: (key) => {
     client.del(key);
